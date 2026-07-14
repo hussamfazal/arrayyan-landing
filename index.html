@@ -3,22 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ar-Rayyan — Your Prayer Companion</title>
-<meta name="description" content="Pray with presence. Automatic rakah tracker, prayer times, qibla compass, and digital tasbih. Free, no ads.">
+<title>Ar-Rayyan</title>
+<meta name="description" content="Your prayer companion. Download free on iOS and Android.">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Ar-Rayyan — Your Prayer Companion">
-<meta property="og:description" content="Automatic rakah tracker, prayer times, qibla compass & digital tasbih. Free, no ads.">
+<meta property="og:title" content="Ar-Rayyan">
+<meta property="og:description" content="Your prayer companion. Download free on iOS and Android.">
 <meta property="og:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hussamfazal.github.io/arrayyan-landing/">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ar-Rayyan — Your Prayer Companion">
-<meta name="twitter:description" content="Automatic rakah tracker, prayer times, qibla compass & digital tasbih. Free, no ads.">
+<meta name="twitter:title" content="Ar-Rayyan">
+<meta name="twitter:description" content="Your prayer companion. Download free on iOS and Android.">
 <meta name="twitter:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
 
 <meta name="theme-color" content="#1A1A2E">
@@ -26,11 +24,10 @@
 
 <script>
   const CONFIG = {
-    iosAppId:        "6743618943",       /* ← UPDATE with your real App Store ID */
+    iosAppId:        "6743618943",
     iosAppName:      "ar-rayyan",
     androidPackage:  "com.hussam.arrayyan",
     baseUrl:         "https://hussamfazal.github.io/arrayyan-landing/",
-    ogImageUrl:      "https://hussamfazal.github.io/arrayyan-landing/og-image.png",
   };
 </script>
 
@@ -41,18 +38,17 @@
     --emerald:  #00A86B;
     --gold:     #D4AF37;
     --text:     #FFFFFF;
-    --muted:    rgba(255, 255, 255, 0.55);
-    --border:   rgba(255, 255, 255, 0.08);
+    --muted:    rgba(255,255,255,0.5);
+    --border:   rgba(255,255,255,0.08);
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
     background: var(--bg);
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
     -webkit-font-smoothing: antialiased;
     color: var(--text);
-    min-height: 100vh;
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -64,406 +60,140 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     min-height: 100dvh;
-    padding: 48px 24px 40px;
-    max-width: 480px;
+    padding: 48px 24px;
+    max-width: 420px;
     width: 100%;
-    gap: 32px;
+    gap: 28px;
   }
 
-  /* ── Logo ───────────────────────────────────────────────────── */
   .logo-wrap {
     position: relative;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 120px; height: 120px;
+    display: flex; align-items: center; justify-content: center;
   }
-
   .logo-glow {
-    position: absolute;
-    inset: -20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 168, 107, 0.18) 0%, transparent 60%);
+    position: absolute; inset: -24px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,168,107,0.2) 0%, transparent 60%);
   }
-
-  .logo-svg {
-    width: 88px;
-    height: 88px;
-    position: relative;
-    z-index: 2;
-    filter: drop-shadow(0 0 24px rgba(0, 168, 107, 0.25));
-  }
-
   .logo-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 28px;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 0 32px rgba(0, 168, 107, 0.2);
+    width: 120px; height: 120px; border-radius: 28px;
+    position: relative; z-index: 2;
+    box-shadow: 0 0 32px rgba(0,168,107,0.2);
   }
 
-  /* ── Headline ───────────────────────────────────────────────── */
   .headline {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 52px;
-    font-weight: 400;
-    color: var(--gold);
-    letter-spacing: 0.5px;
-    line-height: 1;
-    text-align: center;
+    font-family: 'Georgia','Times New Roman',serif;
+    font-size: 48px; font-weight: 400; color: var(--gold);
+    letter-spacing: 0.5px; line-height: 1; text-align: center;
   }
 
-  .tagline {
-    font-size: 17px;
-    font-weight: 300;
-    color: var(--muted);
-    text-align: center;
-    line-height: 1.6;
-    letter-spacing: 0.2px;
+  .buttons {
+    display: flex; flex-direction: column; gap: 12px;
+    width: 100%; max-width: 360px;
   }
 
-  /* ── Feature pills ──────────────────────────────────────────── */
-  .features {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .pill {
-    padding: 9px 20px;
-    border-radius: 100px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--text);
-    letter-spacing: -0.2px;
-    white-space: nowrap;
-  }
-
-  .pill.emerald {
-    border-color: rgba(0, 168, 107, 0.3);
-    color: var(--emerald);
-  }
-
-  /* ── Download buttons ───────────────────────────────────────── */
-  .download-section {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    max-width: 360px;
-  }
-
-  .store-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 16px 24px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    color: var(--text);
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 15px 24px; border-radius: 16px;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--text); font-size: 15px; font-weight: 500;
+    text-decoration: none; cursor: pointer;
+    transition: all 0.2s; -webkit-tap-highlight-color: transparent;
     position: relative;
   }
-
-  .store-btn:hover,
-  .store-btn:active {
-    background: rgba(0, 168, 107, 0.08);
-    border-color: rgba(0, 168, 107, 0.25);
+  .btn:hover,.btn:active {
+    background: rgba(0,168,107,0.1); border-color: rgba(0,168,107,0.25);
   }
-
-  /* Highlighted button (detected device) */
-  .store-btn.highlight {
-    background: rgba(0, 168, 107, 0.1);
-    border-color: rgba(0, 168, 107, 0.35);
-    box-shadow: 0 0 20px rgba(0, 168, 107, 0.08);
+  .btn.highlight {
+    background: rgba(0,168,107,0.12); border-color: rgba(0,168,107,0.35);
+    box-shadow: 0 0 20px rgba(0,168,107,0.08);
   }
-
-  .store-btn.highlight::after {
+  .btn.highlight::after {
     content: 'Tap to install';
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    background: var(--emerald);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 100px;
-    letter-spacing: 0.3px;
+    position: absolute; top: -10px; right: 18px;
+    background: var(--emerald); color: #fff;
+    font-size: 10px; font-weight: 600; padding: 3px 10px;
+    border-radius: 100px; letter-spacing: .3px;
   }
+  .btn svg { width: 24px; height: 24px; flex-shrink: 0; }
+  .btn-text { display: flex; flex-direction: column; align-items: flex-start; line-height:1.2; }
+  .btn-text .label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  .btn-text .store { font-size: 16px; font-weight: 600; }
 
-  .store-btn svg {
-    width: 26px;
-    height: 26px;
-    flex-shrink: 0;
-  }
-
-  .btn-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.2;
-  }
-
-  .btn-text .label {
-    font-size: 10px;
-    color: var(--muted);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .btn-text .store {
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-  }
-
-  /* ── Divider ────────────────────────────────────────────────── */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    width: 100%;
-    max-width: 360px;
-  }
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-  .divider span {
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* ── Share buttons ──────────────────────────────────────────── */
-  .share-section {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    max-width: 360px;
-  }
-
-  .share-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 12px;
-    border-radius: 14px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-  }
-
-  .share-btn:hover,
-  .share-btn:active {
-    background: rgba(0, 168, 107, 0.08);
-    color: var(--text);
-  }
-
-  .share-btn svg {
-    width: 17px;
-    height: 17px;
-  }
-
-  /* ── Toast ──────────────────────────────────────────────────── */
   .toast {
-    position: fixed;
-    bottom: 40px;
-    left: 50%;
+    position: fixed; bottom: 40px; left: 50%;
     transform: translateX(-50%) translateY(100px);
-    padding: 12px 24px;
-    border-radius: 100px;
-    background: rgba(0, 168, 107, 0.15);
-    border: 1px solid rgba(0, 168, 107, 0.3);
-    color: var(--emerald);
-    font-size: 13px;
-    font-weight: 500;
-    z-index: 100;
-    transition: transform 0.3s ease;
-    pointer-events: none;
+    padding: 12px 24px; border-radius: 100px;
+    background: rgba(0,168,107,0.15); border: 1px solid rgba(0,168,107,0.3);
+    color: var(--emerald); font-size: 13px; font-weight: 500;
+    z-index: 100; transition: transform 0.3s; pointer-events: none;
   }
+  .toast.show { transform: translateX(-50%) translateY(0); }
 
-  .toast.show {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  /* ── Footer ─────────────────────────────────────────────────── */
-  .footer {
-    padding: 24px;
-    text-align: center;
-    font-size: 12px;
-    color: rgba(255,255,255,0.2);
-  }
-  .footer a { color: rgba(255,255,255,0.3); }
+  .footer { padding: 20px; font-size: 11px; color: rgba(255,255,255,.15); }
 </style>
 </head>
 <body>
 
 <main class="main">
-
-  <!-- Logo: actual app icon -->
   <div class="logo-wrap">
     <div class="logo-glow"></div>
     <img src="icon.png" alt="Ar-Rayyan" class="logo-img" width="120" height="120">
   </div>
 
   <h1 class="headline">Ar-Rayyan</h1>
-  <p class="tagline">Pray with presence.<br>Your prayer companion.</p>
 
-  <div class="features">
-    <div class="pill emerald">Automatic Rak'ah Tracker</div>
-    <div class="pill">Prayer Times &amp; Adhan</div>
-    <div class="pill">Qibla Compass</div>
-    <div class="pill">Digital Tasbih</div>
-  </div>
-
-  <div class="download-section">
-    <a class="store-btn" id="iosBtn"
-       href="https://apps.apple.com/app/id" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="white">
-        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-      </svg>
-      <div class="btn-text">
-        <span class="label">Download on the</span>
-        <span class="store">App Store</span>
-      </div>
+  <div class="buttons">
+    <a class="btn" id="iosBtn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span class="btn-text"><span class="label">Download on the</span><span class="store">App Store</span></span>
     </a>
 
-    <a class="store-btn" id="androidBtn"
-       href="https://play.google.com/store/apps/details?id=com.hussam.arrayyan" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="white">
-        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
-      </svg>
-      <div class="btn-text">
-        <span class="label">Get it on</span>
-        <span class="store">Google Play</span>
-      </div>
+    <a class="btn" id="androidBtn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+      <span class="btn-text"><span class="label">Get it on</span><span class="store">Google Play</span></span>
     </a>
-  </div>
 
-  <div class="divider"><span>or share</span></div>
-
-  <div class="share-section">
-    <button class="share-btn" onclick="shareLink()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="18" cy="5" r="3"/>
-        <circle cx="6" cy="12" r="3"/>
-        <circle cx="18" cy="19" r="3"/>
-        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-      </svg>
-      Share
+    <button class="btn" onclick="shareLink()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      <span>Share</span>
     </button>
 
-    <a class="share-btn" id="whatsappBtn" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-      WhatsApp
+    <a class="btn" id="whatsappBtn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>WhatsApp</span>
     </a>
   </div>
-
 </main>
 
 <div class="toast" id="toast">Link copied!</div>
-
-<div class="footer">
-  Ar-Rayyan · Free &amp; No Ads · <a href="/privacy">Privacy</a>
-</div>
+<div class="footer">Ar-Rayyan</div>
 
 <script>
-(function() {
-  const ua = navigator.userAgent || '';
+(function(){
+  const ua=navigator.userAgent||'';
+  const isIOS=/iPhone|iPad|iPod/i.test(ua);
+  const isAndroid=/Android/i.test(ua);
 
-  const isIOS     = /iPhone|iPad|iPod/i.test(ua);
-  const isAndroid = /Android/i.test(ua);
+  const iosUrl=`https://apps.apple.com/app/${CONFIG.iosAppName}/id${CONFIG.iosAppId}`;
+  const androidUrl=`https://play.google.com/store/apps/details?id=${CONFIG.androidPackage}`;
+  document.getElementById('iosBtn').href=iosUrl;
+  document.getElementById('androidBtn').href=androidUrl;
 
-  // Build real URLs
-  const iosUrl     = `https://apps.apple.com/app/${CONFIG.iosAppName}/id${CONFIG.iosAppId}`;
-  const androidUrl = `https://play.google.com/store/apps/details?id=${CONFIG.androidPackage}`;
+  if(isIOS) document.getElementById('iosBtn').classList.add('highlight');
+  else if(isAndroid) document.getElementById('androidBtn').classList.add('highlight');
 
-  document.getElementById('iosBtn').href     = iosUrl;
-  document.getElementById('androidBtn').href = androidUrl;
+  const waText=encodeURIComponent(`Ar-Rayyan \uD83D\uDD4C\n\n${CONFIG.baseUrl}`);
+  document.getElementById('whatsappBtn').href=`https://wa.me/?text=${waText}`;
 
-  // Highlight the button matching the visitor's device
-  if (isIOS) {
-    document.getElementById('iosBtn').classList.add('highlight');
-  } else if (isAndroid) {
-    document.getElementById('androidBtn').classList.add('highlight');
-  }
-
-  // Update OG meta
-  document.querySelector('meta[property="og:image"]').content   = CONFIG.ogImageUrl;
-  document.querySelector('meta[name="twitter:image"]').content   = CONFIG.ogImageUrl;
-  document.querySelector('meta[property="og:url"]').content      = CONFIG.baseUrl;
-  document.querySelector('link[rel="canonical"]').href           = CONFIG.baseUrl;
-
-  // WhatsApp share link
-  const waText = encodeURIComponent(
-    `Ar-Rayyan — Your Prayer Companion 🕌\n\n` +
-    `Automatic rakah tracker, prayer times, qibla compass & digital tasbih. Free, no ads.\n\n` +
-    `${CONFIG.baseUrl}`
-  );
-  document.getElementById('whatsappBtn').href = `https://wa.me/?text=${waText}`;
-
-  // Share
-  window.shareLink = async function() {
-    const shareData = {
-      title: 'Ar-Rayyan — Your Prayer Companion',
-      text: 'Automatic rakah tracker, prayer times, qibla compass & digital tasbih. Free, no ads.',
-      url: CONFIG.baseUrl,
-    };
-
-    if (navigator.share) {
-      try { await navigator.share(shareData); return; } catch (_) {}
-    }
-
-    try {
-      await navigator.clipboard.writeText(CONFIG.baseUrl);
-    } catch (_) {
-      const tmp = document.createElement('input');
-      tmp.value = CONFIG.baseUrl;
-      document.body.appendChild(tmp);
-      tmp.select();
-      document.execCommand('copy');
-      document.body.removeChild(tmp);
-    }
-
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2000);
+  window.shareLink=async function(){
+    if(navigator.share) try{await navigator.share({title:'Ar-Rayyan',url:CONFIG.baseUrl});return}catch(_){}
+    try{await navigator.clipboard.writeText(CONFIG.baseUrl)}
+    catch(_){const t=document.createElement('input');t.value=CONFIG.baseUrl;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t)}
+    const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);
   };
 })();
 </script>
-
 </body>
 </html>
