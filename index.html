@@ -97,6 +97,15 @@
     filter: drop-shadow(0 0 24px rgba(0, 168, 107, 0.25));
   }
 
+  .logo-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 32px rgba(0, 168, 107, 0.2);
+  }
+
   /* ── Headline ───────────────────────────────────────────────── */
   .headline {
     font-family: 'Georgia', 'Times New Roman', serif;
@@ -321,32 +330,10 @@
 
 <main class="main">
 
-  <!-- Logo: emerald 8-pointed star with gold center -->
+  <!-- Logo: actual app icon -->
   <div class="logo-wrap">
     <div class="logo-glow"></div>
-    <svg class="logo-svg" viewBox="0 0 200 200" fill="none">
-      <g transform="translate(100,100)">
-        <polygon points="0,-80 22.6,-22.6 80,0 22.6,22.6 0,80 -22.6,22.6 -80,0 -22.6,-22.6"
-                 fill="url(#emeraldGrad)" stroke="#16213E" stroke-width="4"/>
-        <polygon points="0,-55 15.5,-15.5 55,0 15.5,15.5 0,55 -15.5,15.5 -55,0 -15.5,-15.5"
-                 fill="none" stroke="#00A86B" stroke-width="2.5"/>
-        <circle cx="0" cy="0" r="20" fill="#16213E" stroke="#00A86B" stroke-width="2"/>
-        <circle cx="0" cy="0" r="12" fill="url(#goldGrad)"/>
-        <circle cx="0" cy="0" r="5" fill="#1A1A2E"/>
-      </g>
-      <defs>
-        <linearGradient id="emeraldGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#00C17E"/>
-          <stop offset="50%" stop-color="#00A86B"/>
-          <stop offset="100%" stop-color="#006B44"/>
-        </linearGradient>
-        <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#F0D060"/>
-          <stop offset="50%" stop-color="#D4AF37"/>
-          <stop offset="100%" stop-color="#B8960F"/>
-        </linearGradient>
-      </defs>
-    </svg>
+    <img src="icon.png" alt="Ar-Rayyan" class="logo-img" width="120" height="120">
   </div>
 
   <h1 class="headline">Ar-Rayyan</h1>
