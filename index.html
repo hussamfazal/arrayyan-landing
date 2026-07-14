@@ -4,64 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ar-Rayyan — Your Prayer Companion</title>
-<meta name="description" content="Pray with presence. Automatic rakah tracker, prayer times, qibla compass, and digital tasbih. Download free on iOS and Android.">
+<meta name="description" content="Pray with presence. Automatic rakah tracker, prayer times, qibla compass, and digital tasbih. Free, no ads.">
 
-<!-- Open Graph (WhatsApp, Telegram, iMessage, Facebook) -->
+<!-- Open Graph -->
 <meta property="og:title" content="Ar-Rayyan — Your Prayer Companion">
 <meta property="og:description" content="Automatic rakah tracker, prayer times, qibla compass & digital tasbih. Free, no ads.">
-<meta property="og:image" content="https://arrayyan.app/og-image.png">
+<meta property="og:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://arrayyan.app">
+<meta property="og:url" content="https://hussamfazal.github.io/arrayyan-landing/">
 
-<!-- Twitter Card -->
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ar-Rayyan — Your Prayer Companion">
 <meta name="twitter:description" content="Automatic rakah tracker, prayer times, qibla compass & digital tasbih. Free, no ads.">
-<meta name="twitter:image" content="https://arrayyan.app/og-image.png">
+<meta name="twitter:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
 
-<!-- Theme color (browser chrome on Android) -->
-<meta name="theme-color" content="#0a1a0f">
+<meta name="theme-color" content="#1A1A2E">
+<link rel="canonical" href="https://hussamfazal.github.io/arrayyan-landing/">
 
-<!-- Canonical -->
-<link rel="canonical" href="https://arrayyan.app">
-
-<!-- ─── CONFIGURATION ──────────────────────────────────────────── -->
-<!--
-  UPDATE THESE before deploying:
-  - IOS_APP_ID: your App Store app ID (digits from the App Store URL)
-  - ANDROID_PACKAGE: already set to your actual package name
-  - BASE_URL: the URL where this page is hosted (for share links)
-  - OG_IMAGE_URL: full URL to your Open Graph preview image
--->
 <script>
   const CONFIG = {
-    iosAppId:      "6743618943",                                       /* ← UPDATE: your App Store ID */
-    iosAppName:    "ar-rayyan",
-    androidPackage: "com.hussam.arrayyan",
-    baseUrl:        "https://hussamfazal.github.io/arrayyan-landing/",
-    ogImageUrl:     "https://hussamfazal.github.io/arrayyan-landing/og-image.png",
-    redirectDelayMs: 600,    /* Delay before auto-redirect (0 = instant) */
+    iosAppId:        "6743618943",       /* ← UPDATE with your real App Store ID */
+    iosAppName:      "ar-rayyan",
+    androidPackage:  "com.hussam.arrayyan",
+    baseUrl:         "https://hussamfazal.github.io/arrayyan-landing/",
+    ogImageUrl:      "https://hussamfazal.github.io/arrayyan-landing/og-image.png",
   };
 </script>
 
 <style>
   :root {
-    --bg: #0a1a0f;
-    --gold: #c9a84c;
-    --gold-glow: rgba(201, 168, 76, 0.18);
-    --teal: #2ecc71;
-    --text: #ffffff;
-    --text-muted: rgba(255, 255, 255, 0.55);
-    --card-bg: rgba(255, 255, 255, 0.04);
-    --card-border: rgba(255, 255, 255, 0.08);
+    --bg:       #1A1A2E;
+    --card:     #16213E;
+    --emerald:  #00A86B;
+    --gold:     #D4AF37;
+    --text:     #FFFFFF;
+    --muted:    rgba(255, 255, 255, 0.55);
+    --border:   rgba(255, 255, 255, 0.08);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #000;
+    background: var(--bg);
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     color: var(--text);
@@ -72,22 +59,7 @@
     align-items: center;
   }
 
-  /* ── Background ─────────────────────────────────────────────── */
-  .bg {
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 50% 25%, rgba(201, 168, 76, 0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 30% at 25% 80%, rgba(46, 204, 113, 0.04) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 30% at 75% 80%, rgba(46, 204, 113, 0.04) 0%, transparent 60%),
-      var(--bg);
-    z-index: 0;
-  }
-
-  /* ── Main card ──────────────────────────────────────────────── */
   .main {
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,52 +69,52 @@
     padding: 48px 24px 40px;
     max-width: 480px;
     width: 100%;
-    gap: 36px;
+    gap: 32px;
   }
 
-  /* ── Star icon ──────────────────────────────────────────────── */
-  .star-wrap {
+  /* ── Logo ───────────────────────────────────────────────────── */
+  .logo-wrap {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .star-glow {
+  .logo-glow {
     position: absolute;
-    inset: -30px;
+    inset: -20px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(201, 168, 76, 0.15) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(0, 168, 107, 0.18) 0%, transparent 60%);
   }
 
-  .star-svg {
-    width: 100px;
-    height: 100px;
+  .logo-svg {
+    width: 88px;
+    height: 88px;
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 0 30px rgba(201, 168, 76, 0.3));
+    filter: drop-shadow(0 0 24px rgba(0, 168, 107, 0.25));
   }
 
   /* ── Headline ───────────────────────────────────────────────── */
   .headline {
     font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 56px;
+    font-size: 52px;
     font-weight: 400;
     color: var(--gold);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     line-height: 1;
     text-align: center;
   }
 
   .tagline {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 300;
-    color: var(--text-muted);
+    color: var(--muted);
     text-align: center;
     line-height: 1.6;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
   }
 
   /* ── Feature pills ──────────────────────────────────────────── */
@@ -154,70 +126,39 @@
   }
 
   .pill {
-    padding: 10px 22px;
+    padding: 9px 20px;
     border-radius: 100px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    font-size: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-size: 13px;
     font-weight: 400;
     color: var(--text);
     letter-spacing: -0.2px;
     white-space: nowrap;
   }
 
-  .pill.accent {
-    border-color: rgba(201, 168, 76, 0.25);
-    color: var(--gold);
-  }
-
-  /* ── Redirect badge ─────────────────────────────────────────── */
-  .redirect-badge {
-    display: none;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 100px;
-    background: rgba(46, 204, 113, 0.1);
-    border: 1px solid rgba(46, 204, 113, 0.2);
-    font-size: 14px;
-    color: var(--teal);
-    animation: pulse 2s infinite;
-  }
-
-  .redirect-badge.visible { display: flex; }
-
-  .spinner {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(46, 204, 113, 0.2);
-    border-top-color: var(--teal);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0.5; }
+  .pill.emerald {
+    border-color: rgba(0, 168, 107, 0.3);
+    color: var(--emerald);
   }
 
   /* ── Download buttons ───────────────────────────────────────── */
   .download-section {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     width: 100%;
     max-width: 360px;
   }
 
-  .download-btn {
+  .store-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
-    padding: 18px 24px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
+    padding: 16px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
     border-radius: 16px;
     color: var(--text);
     font-size: 16px;
@@ -227,28 +168,39 @@
     transition: all 0.2s ease;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+    position: relative;
   }
 
-  .download-btn:hover,
-  .download-btn:active {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.14);
+  .store-btn:hover,
+  .store-btn:active {
+    background: rgba(0, 168, 107, 0.08);
+    border-color: rgba(0, 168, 107, 0.25);
   }
 
-  .download-btn.primary {
-    background: rgba(201, 168, 76, 0.1);
-    border-color: rgba(201, 168, 76, 0.25);
+  /* Highlighted button (detected device) */
+  .store-btn.highlight {
+    background: rgba(0, 168, 107, 0.1);
+    border-color: rgba(0, 168, 107, 0.35);
+    box-shadow: 0 0 20px rgba(0, 168, 107, 0.08);
   }
 
-  .download-btn.primary:hover,
-  .download-btn.primary:active {
-    background: rgba(201, 168, 76, 0.18);
-    border-color: rgba(201, 168, 76, 0.4);
+  .store-btn.highlight::after {
+    content: 'Tap to install';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--emerald);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
   }
 
-  .download-btn svg {
-    width: 28px;
-    height: 28px;
+  .store-btn svg {
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
   }
 
@@ -260,15 +212,15 @@
   }
 
   .btn-text .label {
-    font-size: 11px;
-    color: var(--text-muted);
+    font-size: 10px;
+    color: var(--muted);
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
   .btn-text .store {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     letter-spacing: -0.3px;
   }
@@ -277,7 +229,7 @@
   .divider {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     width: 100%;
     max-width: 360px;
   }
@@ -285,19 +237,19 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: rgba(255,255,255,0.08);
+    background: var(--border);
   }
   .divider span {
-    font-size: 12px;
-    color: var(--text-muted);
+    font-size: 11px;
+    color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 1px;
   }
 
-  /* ── Share ──────────────────────────────────────────────────── */
+  /* ── Share buttons ──────────────────────────────────────────── */
   .share-section {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
     max-width: 360px;
   }
@@ -307,15 +259,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 14px;
+    gap: 7px;
+    padding: 12px;
     border-radius: 14px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    color: var(--text-muted);
-    font-size: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.2s ease;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
@@ -323,13 +276,13 @@
 
   .share-btn:hover,
   .share-btn:active {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 168, 107, 0.08);
     color: var(--text);
   }
 
   .share-btn svg {
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
   }
 
   /* ── Toast ──────────────────────────────────────────────────── */
@@ -338,12 +291,12 @@
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    padding: 14px 28px;
+    padding: 12px 24px;
     border-radius: 100px;
-    background: rgba(46, 204, 113, 0.15);
-    border: 1px solid rgba(46, 204, 113, 0.3);
-    color: var(--teal);
-    font-size: 14px;
+    background: rgba(0, 168, 107, 0.15);
+    border: 1px solid rgba(0, 168, 107, 0.3);
+    color: var(--emerald);
+    font-size: 13px;
     font-weight: 500;
     z-index: 100;
     transition: transform 0.3s ease;
@@ -356,66 +309,58 @@
 
   /* ── Footer ─────────────────────────────────────────────────── */
   .footer {
-    position: relative;
     padding: 24px;
     text-align: center;
     font-size: 12px;
     color: rgba(255,255,255,0.2);
   }
-
   .footer a { color: rgba(255,255,255,0.3); }
 </style>
 </head>
 <body>
 
-<div class="bg"></div>
-
 <main class="main">
 
-  <!-- Star -->
-  <div class="star-wrap">
-    <div class="star-glow"></div>
-    <svg class="star-svg" viewBox="0 0 200 200" fill="none">
+  <!-- Logo: emerald 8-pointed star with gold center -->
+  <div class="logo-wrap">
+    <div class="logo-glow"></div>
+    <svg class="logo-svg" viewBox="0 0 200 200" fill="none">
       <g transform="translate(100,100)">
         <polygon points="0,-80 22.6,-22.6 80,0 22.6,22.6 0,80 -22.6,22.6 -80,0 -22.6,-22.6"
-                 fill="url(#goldGrad)" stroke="#1a2a1f" stroke-width="4"/>
+                 fill="url(#emeraldGrad)" stroke="#16213E" stroke-width="4"/>
         <polygon points="0,-55 15.5,-15.5 55,0 15.5,15.5 0,55 -15.5,15.5 -55,0 -15.5,-15.5"
-                 fill="none" stroke="#2ecc71" stroke-width="3"/>
-        <circle cx="0" cy="0" r="22" fill="#1a2a1f" stroke="#2ecc71" stroke-width="2.5"/>
-        <circle cx="0" cy="0" r="14" fill="url(#goldGrad)"/>
-        <circle cx="0" cy="0" r="6" fill="#0a1a0f"/>
+                 fill="none" stroke="#00A86B" stroke-width="2.5"/>
+        <circle cx="0" cy="0" r="20" fill="#16213E" stroke="#00A86B" stroke-width="2"/>
+        <circle cx="0" cy="0" r="12" fill="url(#goldGrad)"/>
+        <circle cx="0" cy="0" r="5" fill="#1A1A2E"/>
       </g>
       <defs>
+        <linearGradient id="emeraldGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#00C17E"/>
+          <stop offset="50%" stop-color="#00A86B"/>
+          <stop offset="100%" stop-color="#006B44"/>
+        </linearGradient>
         <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#e8c84a"/>
-          <stop offset="50%" stop-color="#c9a84c"/>
-          <stop offset="100%" stop-color="#a07830"/>
+          <stop offset="0%" stop-color="#F0D060"/>
+          <stop offset="50%" stop-color="#D4AF37"/>
+          <stop offset="100%" stop-color="#B8960F"/>
         </linearGradient>
       </defs>
     </svg>
   </div>
 
-  <!-- Name -->
   <h1 class="headline">Ar-Rayyan</h1>
   <p class="tagline">Pray with presence.<br>Your prayer companion.</p>
 
-  <!-- Features -->
   <div class="features">
-    <div class="pill accent">Automatic Rak'ah Tracker</div>
+    <div class="pill emerald">Automatic Rak'ah Tracker</div>
     <div class="pill">Prayer Times &amp; Adhan</div>
     <div class="pill">Qibla Compass</div>
     <div class="pill">Digital Tasbih</div>
   </div>
 
-  <!-- Auto-redirect badge -->
-  <div class="redirect-badge" id="redirectBadge">
-    <div class="spinner"></div>
-    <span id="redirectMsg">Redirecting to App Store…</span>
-  </div>
-
-  <!-- Download buttons -->
   <div class="download-section">
-    <a class="download-btn primary" id="iosBtn"
+    <a class="store-btn" id="iosBtn"
        href="https://apps.apple.com/app/id" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="white">
         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -426,7 +371,7 @@
       </div>
     </a>
 
-    <a class="download-btn" id="androidBtn"
+    <a class="store-btn" id="androidBtn"
        href="https://play.google.com/store/apps/details?id=com.hussam.arrayyan" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="white">
         <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
@@ -438,12 +383,10 @@
     </a>
   </div>
 
-  <!-- Divider -->
   <div class="divider"><span>or share</span></div>
 
-  <!-- Share buttons -->
   <div class="share-section">
-    <button class="share-btn" id="shareBtn" onclick="shareLink()">
+    <button class="share-btn" onclick="shareLink()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="18" cy="5" r="3"/>
         <circle cx="6" cy="12" r="3"/>
@@ -464,94 +407,70 @@
 
 </main>
 
-<!-- Toast -->
 <div class="toast" id="toast">Link copied!</div>
 
 <div class="footer">
   Ar-Rayyan · Free &amp; No Ads · <a href="/privacy">Privacy</a>
 </div>
 
-<!-- ─── LOGIC ──────────────────────────────────────────────────── -->
 <script>
 (function() {
   const ua = navigator.userAgent || '';
 
-  // ── Device detection ──────────────────────────────────────────
   const isIOS     = /iPhone|iPad|iPod/i.test(ua);
   const isAndroid = /Android/i.test(ua);
-  const isMobile  = isIOS || isAndroid;
 
-  // ── Build real URLs ───────────────────────────────────────────
-  const iosUrl = `https://apps.apple.com/app/${CONFIG.iosAppName}/id${CONFIG.iosAppId}`;
+  // Build real URLs
+  const iosUrl     = `https://apps.apple.com/app/${CONFIG.iosAppName}/id${CONFIG.iosAppId}`;
   const androidUrl = `https://play.google.com/store/apps/details?id=${CONFIG.androidPackage}`;
-  const shareUrl = CONFIG.baseUrl;
 
-  // ── Update button hrefs ───────────────────────────────────────
-  document.getElementById('iosBtn').href = iosUrl;
+  document.getElementById('iosBtn').href     = iosUrl;
   document.getElementById('androidBtn').href = androidUrl;
 
-  // Update OG image meta tags
-  document.querySelector('meta[property="og:image"]').content = CONFIG.ogImageUrl;
-  document.querySelector('meta[name="twitter:image"]').content = CONFIG.ogImageUrl;
-  document.querySelector('meta[property="og:url"]').content = CONFIG.baseUrl;
-  document.querySelector('link[rel="canonical"]').href = CONFIG.baseUrl;
+  // Highlight the button matching the visitor's device
+  if (isIOS) {
+    document.getElementById('iosBtn').classList.add('highlight');
+  } else if (isAndroid) {
+    document.getElementById('androidBtn').classList.add('highlight');
+  }
 
-  // Build WhatsApp share URL
+  // Update OG meta
+  document.querySelector('meta[property="og:image"]').content   = CONFIG.ogImageUrl;
+  document.querySelector('meta[name="twitter:image"]').content   = CONFIG.ogImageUrl;
+  document.querySelector('meta[property="og:url"]').content      = CONFIG.baseUrl;
+  document.querySelector('link[rel="canonical"]').href           = CONFIG.baseUrl;
+
+  // WhatsApp share link
   const waText = encodeURIComponent(
     `Ar-Rayyan — Your Prayer Companion 🕌\n\n` +
     `Automatic rakah tracker, prayer times, qibla compass & digital tasbih. Free, no ads.\n\n` +
-    `${shareUrl}`
+    `${CONFIG.baseUrl}`
   );
   document.getElementById('whatsappBtn').href = `https://wa.me/?text=${waText}`;
 
-  // ── Auto-redirect ─────────────────────────────────────────────
-  if (isMobile) {
-    const badge = document.getElementById('redirectBadge');
-    const msg   = document.getElementById('redirectMsg');
-    const targetUrl = isIOS ? iosUrl : androidUrl;
-    const storeName = isIOS ? 'App Store' : 'Google Play';
-
-    msg.textContent = `Redirecting to ${storeName}…`;
-    badge.classList.add('visible');
-
-    // Redirect after configured delay
-    setTimeout(() => {
-      window.location.href = targetUrl;
-    }, CONFIG.redirectDelayMs);
-  }
-
-  // ── Share ─────────────────────────────────────────────────────
+  // Share
   window.shareLink = async function() {
     const shareData = {
       title: 'Ar-Rayyan — Your Prayer Companion',
       text: 'Automatic rakah tracker, prayer times, qibla compass & digital tasbih. Free, no ads.',
-      url: shareUrl,
+      url: CONFIG.baseUrl,
     };
 
-    // Try native Web Share API (works on mobile Safari & Chrome)
     if (navigator.share) {
-      try {
-        await navigator.share(shareData);
-        return;
-      } catch (e) {
-        // User cancelled or API failed — fall through to clipboard
-      }
+      try { await navigator.share(shareData); return; } catch (_) {}
     }
 
-    // Fallback: copy to clipboard
     try {
-      await navigator.clipboard.writeText(shareUrl);
+      await navigator.clipboard.writeText(CONFIG.baseUrl);
     } catch (_) {
-      // Last resort: select & copy
       const tmp = document.createElement('input');
-      tmp.value = shareUrl;
+      tmp.value = CONFIG.baseUrl;
       document.body.appendChild(tmp);
       tmp.select();
       document.execCommand('copy');
       document.body.removeChild(tmp);
     }
 
-    // Show toast
     const toast = document.getElementById('toast');
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 2000);
