@@ -1,131 +1,1624 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Ar-Rayyan</title>
-<meta name="description" content="Your prayer companion. Download free on iOS and Android.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ar-Rayyan — Stay Aware in Every Prayer</title>
+  <meta name="description" content="Ar-Rayyan counts your rak’ahs automatically so you can pray with awareness. Prayer times, qibla, tasbih, widgets and more — free on iOS and Android.">
+  <meta name="theme-color" content="#092f27">
+  <meta property="og:title" content="Ar-Rayyan — Stay Aware in Every Prayer">
+  <meta property="og:description" content="Hands-free rak’ah tracking. Private by design. Free forever.">
+  <meta property="og:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hussamfazal.github.io/arrayyan-landing/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ar-Rayyan — Stay Aware in Every Prayer">
+  <meta name="twitter:description" content="Hands-free rak’ah tracking. Private by design. Free forever.">
+  <meta name="twitter:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <script>
+    const CONFIG = {
+      iosUrl: "https://apps.apple.com/app/ar-rayyan-muslim-prayer-times/id6778996322",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.hussam.arrayyan",
+      baseUrl: "https://hussamfazal.github.io/arrayyan-landing/"
+    };
+  </script>
+  <style>
+    :root {
+      --ink: #10221d;
+      --forest: #092f27;
+      --forest-2: #0c3d32;
+      --green: #0fb77e;
+      --mint: #b9ead8;
+      --ivory: #f4f0e6;
+      --paper: #fbf8f1;
+      --gold: #c8a85c;
+      --line: rgba(16, 34, 29, .14);
+      --muted: #65716c;
+      --white: #fffefa;
+      --radius: 30px;
+      --shadow: 0 28px 80px rgba(5, 37, 30, .14);
+    }
 
-<meta property="og:title" content="Ar-Rayyan">
-<meta property="og:description" content="Your prayer companion. Download free on iOS and Android.">
-<meta property="og:image" content="https://hussamfazal.github.io/arrayyan-landing/icon.png">
-<meta property="og:image:width" content="192">
-<meta property="og:image:height" content="192">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://hussamfazal.github.io/arrayyan-landing/">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ar-Rayyan">
-<meta name="twitter:image" content="https://hussamfazal.github.io/arrayyan-landing/icon.png">
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
 
-<meta name="theme-color" content="#1A1A2E">
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 3%, rgba(185, 234, 216, .42), transparent 24rem),
+        var(--paper);
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-<script>
-  const CONFIG = {
-    iosAppId:        "6778996322",
-    iosAppName:      "ar-rayyan-muslim-prayer-times",
-    androidPackage:  "com.hussam.arrayyan",
-    baseUrl:         "https://hussamfazal.github.io/arrayyan-landing/",
-  };
-</script>
+    body.menu-open {
+      overflow: hidden;
+    }
 
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    background:#1A1A2E;
-    font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    color:#fff;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    min-height:-webkit-fill-available;
-  }
-  .main{
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    width:100%;max-width:380px;padding:40px 20px;gap:32px;
-  }
-  .logo-img{
-    width:100px;height:100px;border-radius:24px;
-    box-shadow:0 0 30px rgba(0,168,107,.15);
-  }
-  h1{
-    font-family:Georgia,'Times New Roman',serif;
-    font-size:44px;font-weight:400;color:#D4AF37;text-align:center;
-  }
-  .buttons{display:flex;flex-direction:column;gap:12px;width:100%}
-  .btn{
-    display:flex;align-items:center;justify-content:center;gap:12px;
-    padding:14px 20px;border-radius:14px;
-    background:#16213E;border:1px solid rgba(255,255,255,.08);
-    color:#fff;font-size:15px;font-weight:500;
-    text-decoration:none;cursor:pointer;
-    -webkit-tap-highlight-color:transparent;
-    transition:background .15s,border-color .15s;
-  }
-  .btn:active{background:rgba(0,168,107,.12);border-color:rgba(0,168,107,.25)}
-  .btn svg{width:22px;height:22px;flex-shrink:0}
-  .btn-text{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2}
-  .btn-text span:first-child{font-size:10px;color:rgba(255,255,255,.5);text-transform:uppercase}
-  .btn-text span:last-child{font-size:16px;font-weight:600}
-  .footer{padding:20px;font-size:11px;color:rgba(255,255,255,.12)}
-</style>
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      opacity: .55;
+    }
+
+    .display {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: .98;
+    }
+
+    .display em {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      left: 16px;
+      top: 12px;
+      transform: translateY(-150%);
+      border-radius: 100px;
+      background: var(--white);
+      color: var(--forest);
+      padding: 10px 16px;
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .nav {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: var(--white);
+    }
+
+    .nav-inner {
+      width: min(1240px, calc(100% - 48px));
+      min-height: 90px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: inherit;
+      text-decoration: none;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .brand img {
+      width: 38px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 10px;
+      box-shadow: 0 7px 22px rgba(0, 0, 0, .22);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, .74);
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--white);
+    }
+
+    .nav-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: 100px;
+      padding: 11px 17px;
+      color: var(--white) !important;
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-download::after {
+      content: "↗";
+      font-size: 12px;
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .08);
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .menu-button span,
+    .menu-button::before,
+    .menu-button::after {
+      display: block;
+      width: 18px;
+      height: 1px;
+      margin: 5px auto;
+      background: currentColor;
+      content: "";
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-button[aria-expanded="true"] span {
+      opacity: 0;
+    }
+
+    .menu-button[aria-expanded="true"]::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-button[aria-expanded="true"]::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 860px;
+      padding: 170px 0 84px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 78% 38%, rgba(15, 183, 126, .18), transparent 28rem),
+        radial-gradient(circle at 17% 14%, rgba(200, 168, 92, .12), transparent 26rem),
+        var(--forest);
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 720px;
+      height: 720px;
+      right: -175px;
+      bottom: -240px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 50% 50% 0 0;
+      box-shadow:
+        0 0 0 70px rgba(255, 255, 255, .018),
+        0 0 0 140px rgba(255, 255, 255, .012);
+      transform: rotate(-8deg);
+    }
+
+    .hero::after {
+      inset: 0;
+      opacity: .16;
+      background-image: radial-gradient(rgba(255, 255, 255, .42) .65px, transparent .65px);
+      background-size: 13px 13px;
+      mask-image: linear-gradient(100deg, black, transparent 46%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(340px, .82fr);
+      align-items: center;
+      gap: 32px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      padding-bottom: 38px;
+    }
+
+    .hero .eyebrow {
+      color: var(--mint);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      font-size: clamp(56px, 5.8vw, 82px);
+    }
+
+    .hero h1 em {
+      display: block;
+    }
+
+    .hero-lead {
+      max-width: 620px;
+      margin-top: 24px;
+      color: rgba(255, 255, 255, .68);
+      font-size: clamp(17px, 1.7vw, 20px);
+      line-height: 1.65;
+    }
+
+    .hero-lead strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .download-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .store-button {
+      min-width: 190px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border-radius: 13px;
+      padding: 13px 20px;
+      color: var(--forest);
+      background: var(--white);
+      text-decoration: none;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, .16);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .store-button.secondary {
+      border: 1px solid rgba(255, 255, 255, .18);
+      color: var(--white);
+      background: rgba(255, 255, 255, .07);
+      box-shadow: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .store-button:hover,
+    .store-button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 42px rgba(0, 0, 0, .2);
+    }
+
+    .store-button svg {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+    }
+
+    .store-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.05;
+    }
+
+    .store-copy small {
+      margin-bottom: 3px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .62;
+    }
+
+    .store-copy span {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 16px;
+      color: rgba(255, 255, 255, .47);
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+    }
+
+    .hero-note span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(15, 183, 126, .12);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 590px;
+    }
+
+    .phone {
+      position: relative;
+      width: min(280px, 70vw);
+      padding: 9px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 56px;
+      background: linear-gradient(145deg, #39433f, #101714 42%, #23352f);
+      box-shadow:
+        0 60px 100px rgba(0, 0, 0, .4),
+        inset 0 1px rgba(255, 255, 255, .18);
+      transform: rotate(2.5deg);
+    }
+
+    .phone::before {
+      position: absolute;
+      z-index: 2;
+      top: 17px;
+      left: 50%;
+      width: 86px;
+      height: 25px;
+      border-radius: 100px;
+      background: #000;
+      content: "";
+      transform: translateX(-50%);
+    }
+
+    .phone img {
+      width: 100%;
+      border-radius: 47px;
+      background: #000;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 490px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(185, 234, 216, .14);
+      border-radius: 50%;
+      animation: slow-spin 42s linear infinite;
+    }
+
+    .orbit::after {
+      position: absolute;
+      top: 48px;
+      right: 44px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 20px rgba(200, 168, 92, .7);
+      content: "";
+    }
+
+    @keyframes slow-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .float-card {
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 178px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 17px;
+      padding: 13px 15px;
+      color: var(--white);
+      background: rgba(6, 36, 29, .7);
+      box-shadow: 0 22px 54px rgba(0, 0, 0, .22);
+      backdrop-filter: blur(16px);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .float-card.top {
+      top: 106px;
+      right: 0;
+    }
+
+    .float-card.bottom {
+      bottom: 105px;
+      left: -12px;
+    }
+
+    .float-icon {
+      display: grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      color: var(--mint);
+      background: rgba(185, 234, 216, .1);
+      font-size: 17px;
+    }
+
+    .float-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .float-copy strong {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .float-copy span {
+      margin-top: 2px;
+      color: rgba(255, 255, 255, .5);
+      font-size: 10px;
+    }
+
+    .assurance {
+      border-bottom: 1px solid var(--line);
+      background: var(--ivory);
+    }
+
+    .assurance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .assurance-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 92px;
+      border-right: 1px solid var(--line);
+      font-family: "DM Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .assurance-item:first-child {
+      border-left: 1px solid var(--line);
+    }
+
+    .assurance-mark {
+      color: var(--green);
+      font-size: 15px;
+    }
+
+    .intro {
+      padding: 150px 0 115px;
+      background: var(--paper);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .77fr) minmax(0, 1.23fr);
+      gap: 10vw;
+      align-items: start;
+    }
+
+    .intro .eyebrow {
+      color: var(--green);
+      margin-top: 13px;
+    }
+
+    .intro h2 {
+      max-width: 780px;
+      font-size: clamp(45px, 5.2vw, 72px);
+    }
+
+    .intro h2 em {
+      color: var(--green);
+    }
+
+    .intro-copy {
+      max-width: 610px;
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .intro-copy strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .how {
+      padding: 0 0 150px;
+      background: var(--paper);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 54px;
+    }
+
+    .section-head h2 {
+      max-width: 650px;
+      font-size: clamp(42px, 5vw, 64px);
+    }
+
+    .section-head p {
+      max-width: 390px;
+      padding-bottom: 6px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step {
+      min-height: 300px;
+      padding: 34px 38px 40px;
+      border-right: 1px solid var(--line);
+      transition: background .25s ease;
+    }
+
+    .step:first-child {
+      border-left: 1px solid var(--line);
+    }
+
+    .step:hover {
+      background: var(--ivory);
+    }
+
+    .step-number {
+      display: flex;
+      justify-content: space-between;
+      color: var(--green);
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .14em;
+    }
+
+    .step-symbol {
+      color: var(--gold);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .step h3 {
+      margin-top: 94px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: -.03em;
+    }
+
+    .step p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .feature-stage {
+      position: relative;
+      padding: 145px 0;
+      color: var(--white);
+      background: var(--forest);
+      overflow: hidden;
+    }
+
+    .feature-stage::before {
+      position: absolute;
+      inset: 0;
+      opacity: .18;
+      background:
+        repeating-linear-gradient(90deg, transparent 0, transparent calc(16.666% - 1px), rgba(255, 255, 255, .06) calc(16.666% - 1px), rgba(255, 255, 255, .06) 16.666%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .feature-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10vw;
+      align-items: center;
+    }
+
+    .feature-copy .eyebrow {
+      color: var(--mint);
+      margin-bottom: 24px;
+    }
+
+    .feature-copy h2 {
+      max-width: 600px;
+      font-size: clamp(45px, 5.3vw, 72px);
+    }
+
+    .feature-copy > p {
+      max-width: 520px;
+      margin-top: 30px;
+      color: rgba(255, 255, 255, .62);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .feature-list {
+      margin-top: 42px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+      gap: 13px;
+      min-height: 66px;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .72);
+      font-size: 14px;
+    }
+
+    .feature-list span:first-child {
+      color: var(--gold);
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+    }
+
+    .feature-list span:last-child {
+      color: rgba(255, 255, 255, .28);
+    }
+
+    .phone-pair {
+      position: relative;
+      min-height: 690px;
+    }
+
+    .mini-phone {
+      position: absolute;
+      width: 250px;
+      padding: 7px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 45px;
+      background: #18211e;
+      box-shadow: 0 45px 90px rgba(0, 0, 0, .38);
+    }
+
+    .mini-phone img {
+      border-radius: 39px;
+    }
+
+    .mini-phone.one {
+      z-index: 2;
+      top: 0;
+      right: 18px;
+      transform: rotate(5deg);
+    }
+
+    .mini-phone.two {
+      z-index: 1;
+      bottom: 0;
+      left: 0;
+      transform: rotate(-7deg);
+    }
+
+    .feature-seal {
+      position: absolute;
+      z-index: 3;
+      right: 185px;
+      bottom: 185px;
+      display: grid;
+      place-items: center;
+      width: 104px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(200, 168, 92, .7);
+      border-radius: 50%;
+      color: var(--gold);
+      background: var(--forest);
+      font-family: "DM Sans", sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      line-height: 1.45;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(9deg);
+    }
+
+    .privacy {
+      padding: 148px 0;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(185, 234, 216, .45), transparent 26rem),
+        var(--ivory);
+    }
+
+    .privacy-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap: 70px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(42px, 6vw, 78px);
+      background: rgba(255, 254, 250, .74);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .privacy-card::after {
+      position: absolute;
+      right: -100px;
+      bottom: -170px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(15, 183, 126, .2);
+      border-radius: 50% 50% 0 0;
+      content: "";
+      transform: rotate(-18deg);
+    }
+
+    .privacy-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .privacy .eyebrow {
+      margin-bottom: 22px;
+      color: var(--green);
+    }
+
+    .privacy h2 {
+      max-width: 690px;
+      font-size: clamp(42px, 5vw, 66px);
+    }
+
+    .privacy p {
+      max-width: 650px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .privacy-points {
+      position: relative;
+      z-index: 1;
+      list-style: none;
+    }
+
+    .privacy-points li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .privacy-points li:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .privacy-points b {
+      color: var(--green);
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .privacy-points span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .ecosystem {
+      padding: 145px 0;
+      background: var(--paper);
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 9vw;
+      align-items: center;
+    }
+
+    .ecosystem-art {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: #e7f0e9;
+    }
+
+    .ecosystem-copy .eyebrow {
+      margin-bottom: 24px;
+      color: var(--green);
+    }
+
+    .ecosystem-copy h2 {
+      font-size: clamp(44px, 5vw, 66px);
+    }
+
+    .ecosystem-copy p {
+      max-width: 540px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .ecosystem-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .ecosystem-stat {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      background: var(--white);
+    }
+
+    .ecosystem-stat strong {
+      display: block;
+      color: var(--forest);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .ecosystem-stat span {
+      color: var(--muted);
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .closing {
+      padding: 120px 0;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 50% 130%, rgba(15, 183, 126, .25), transparent 35rem),
+        var(--forest);
+      text-align: center;
+    }
+
+    .closing-icon {
+      width: 76px;
+      margin-inline: auto;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+    }
+
+    .closing h2 {
+      max-width: 800px;
+      margin: 30px auto 0;
+      font-size: clamp(48px, 6vw, 80px);
+    }
+
+    .closing p {
+      max-width: 560px;
+      margin: 24px auto 0;
+      color: rgba(255, 255, 255, .6);
+      font-size: 17px;
+    }
+
+    .closing .download-row {
+      justify-content: center;
+    }
+
+    .closing-note {
+      margin-top: 22px;
+      color: rgba(255, 255, 255, .36);
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      padding: 34px 0;
+      color: rgba(255, 255, 255, .54);
+      background: #05241e;
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-brand {
+      color: var(--white);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .footer a {
+      text-decoration: none;
+    }
+
+    .footer a:hover,
+    .footer a:focus-visible {
+      color: var(--white);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .delay-1 { transition-delay: .08s; }
+    .delay-2 { transition-delay: .16s; }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 960px) {
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        visibility: hidden;
+        opacity: 0;
+        background: rgba(5, 36, 30, .98);
+        transition: opacity .2s ease, visibility .2s ease;
+      }
+
+      .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .nav-links a {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 34px;
+      }
+
+      .nav-download {
+        margin-top: 10px;
+        font-family: "DM Sans", sans-serif !important;
+        font-size: 15px !important;
+      }
+
+      .menu-button {
+        z-index: 2;
+        display: block;
+      }
+
+      .hero {
+        padding-top: 145px;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .feature-grid,
+      .privacy-card,
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+      }
+
+      .hero-visual {
+        min-height: 610px;
+      }
+
+      .float-card.top {
+        right: 8%;
+      }
+
+      .float-card.bottom {
+        left: 8%;
+      }
+
+      .assurance-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .assurance-item:nth-child(3) {
+        border-left: 1px solid var(--line);
+      }
+
+      .assurance-item:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .intro {
+        padding-block: 110px 90px;
+      }
+
+      .intro-grid {
+        gap: 34px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        min-height: auto;
+        border-left: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .step:last-child {
+        border-bottom: 0;
+      }
+
+      .step h3 {
+        margin-top: 55px;
+      }
+
+      .phone-pair {
+        width: min(560px, 100%);
+        margin-inline: auto;
+      }
+
+      .privacy-card {
+        gap: 38px;
+      }
+
+      .ecosystem-art {
+        max-width: 620px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell,
+      .nav-inner {
+        width: min(100% - 32px, 1180px);
+      }
+
+      .nav-inner {
+        min-height: 76px;
+      }
+
+      .brand {
+        font-size: 20px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 125px 0 62px;
+      }
+
+      .hero h1 {
+        font-size: clamp(52px, 16vw, 68px);
+      }
+
+      .hero-lead {
+        margin-top: 24px;
+        font-size: 16px;
+      }
+
+      .download-row {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .store-button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 530px;
+        margin-top: 8px;
+      }
+
+      .phone {
+        width: 250px;
+        border-radius: 47px;
+      }
+
+      .phone img {
+        border-radius: 39px;
+      }
+
+      .orbit {
+        width: 390px;
+      }
+
+      .float-card {
+        min-width: 150px;
+        padding: 11px 12px;
+      }
+
+      .float-card.top {
+        top: 92px;
+        right: 0;
+      }
+
+      .float-card.bottom {
+        bottom: 75px;
+        left: 0;
+      }
+
+      .assurance-item {
+        min-height: 74px;
+        padding: 10px;
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .intro,
+      .feature-stage,
+      .privacy,
+      .ecosystem {
+        padding-block: 92px;
+      }
+
+      .how {
+        padding-bottom: 92px;
+      }
+
+      .section-head {
+        display: block;
+        margin-bottom: 34px;
+      }
+
+      .section-head p {
+        margin-top: 20px;
+      }
+
+      .step {
+        padding: 28px;
+      }
+
+      .feature-grid {
+        gap: 70px;
+      }
+
+      .feature-copy > p,
+      .intro-copy,
+      .privacy p,
+      .ecosystem-copy p {
+        font-size: 16px;
+      }
+
+      .phone-pair {
+        min-height: 530px;
+      }
+
+      .mini-phone {
+        width: 194px;
+        border-radius: 37px;
+      }
+
+      .mini-phone img {
+        border-radius: 31px;
+      }
+
+      .feature-seal {
+        right: 120px;
+        bottom: 144px;
+        width: 85px;
+      }
+
+      .privacy-card {
+        padding: 34px 24px;
+      }
+
+      .ecosystem-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .closing {
+        padding-block: 90px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<main class="main">
-  <img src="icon.png" alt="Ar-Rayyan" class="logo-img" width="100" height="100">
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#" aria-label="Ar-Rayyan home">
+        <img src="assets/app-icon.png" alt="" width="38" height="38">
+        <span>Ar-Rayyan</span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a class="nav-download" href="#download">Download free</a></li>
+      </ul>
+    </div>
+  </header>
 
-  <h1>Ar-Rayyan</h1>
+  <main id="main">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A prayer companion for awareness</div>
+          <h1 class="display">Never lose count. <em>Stay in the prayer.</em></h1>
+          <p class="hero-lead"><strong>Ar-Rayyan counts your rak’ahs automatically</strong> as you pray—no tapping, no distraction. Place your phone on the mat and let your focus stay where it belongs.</p>
+          <div class="download-row">
+            <a class="store-button ios-link" href="https://apps.apple.com/app/ar-rayyan-muslim-prayer-times/id6778996322" aria-label="Download Ar-Rayyan on the App Store">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+              <span class="store-copy"><small>Download on the</small><span>App Store</span></span>
+            </a>
+            <a class="store-button secondary android-link" href="https://play.google.com/store/apps/details?id=com.hussam.arrayyan" aria-label="Get Ar-Rayyan on Google Play">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92Zm10.89 10.893 2.302 2.302-10.937 6.333 8.635-8.635Zm3.199-3.199 2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492ZM5.864 2.658 16.8 8.99l-2.302 2.302-8.634-8.634Z"/></svg>
+              <span class="store-copy"><small>Get it on</small><span>Google Play</span></span>
+            </a>
+          </div>
+          <div class="hero-note"><span></span> Free forever · No ads · No subscriptions</div>
+        </div>
 
-  <div class="buttons">
-    <a class="btn" id="iosBtn">
-      <svg viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
-      <span class="btn-text"><span>Download on the</span><span>App Store</span></span>
-    </a>
+        <div class="hero-visual" aria-label="Ar-Rayyan rak’ah tracker shown on an iPhone">
+          <div class="orbit" aria-hidden="true"></div>
+          <div class="phone">
+            <img src="assets/screen-rakat.png" alt="Ar-Rayyan rak’ah tracker screen" width="1206" height="2622">
+          </div>
+          <div class="float-card top" aria-hidden="true">
+            <div class="float-icon">✦</div>
+            <div class="float-copy"><strong>Hands-free tracking</strong><span>Each sujood, counted</span></div>
+          </div>
+          <div class="float-card bottom" aria-hidden="true">
+            <div class="float-icon">⌁</div>
+            <div class="float-copy"><strong>Private by design</strong><span>Everything stays on-device</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <a class="btn" id="androidBtn">
-      <svg viewBox="0 0 24 24" fill="white"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634"/></svg>
-      <span class="btn-text"><span>Get it on</span><span>Google Play</span></span>
-    </a>
+    <section class="assurance" aria-label="Product assurances">
+      <div class="shell assurance-grid">
+        <div class="assurance-item"><span class="assurance-mark">✦</span> Automatic rak’ah count</div>
+        <div class="assurance-item"><span class="assurance-mark">✦</span> No tapping required</div>
+        <div class="assurance-item"><span class="assurance-mark">✦</span> 100% on-device</div>
+        <div class="assurance-item"><span class="assurance-mark">✦</span> iOS &amp; Android</div>
+      </div>
+    </section>
 
-    <button class="btn" onclick="shareLink()" style="font-family:inherit">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-      Share
-    </button>
+    <section class="intro">
+      <div class="shell intro-grid">
+        <div class="eyebrow reveal">Why Ar-Rayyan</div>
+        <div>
+          <h2 class="display reveal">The moment your mind asks “two or three?” <em>shouldn’t take you away.</em></h2>
+          <p class="intro-copy reveal">Ar-Rayyan was made for a familiar moment: losing count in salah. Its depth-aware tracker recognizes each prostration and keeps count in real time, so <strong>you can return your attention to the prayer itself.</strong></p>
+        </div>
+      </div>
+    </section>
 
-    <a class="btn" id="whatsappBtn">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
-      WhatsApp
-    </a>
-  </div>
-</main>
+    <section class="how" id="how">
+      <div class="shell">
+        <div class="section-head">
+          <h2 class="display reveal">Awareness, in three simple steps.</h2>
+          <p class="reveal">No wearables to configure. No screen to touch while you pray. Just open, place, and begin.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-number"><span>01 / PLACE</span><span class="step-symbol">◡</span></div>
+            <h3>Place your phone</h3>
+            <p>Set it screen-up in the centre of your prayer mat and choose the number of rak’ahs.</p>
+          </article>
+          <article class="step reveal delay-1">
+            <div class="step-number"><span>02 / PRAY</span><span class="step-symbol">⌁</span></div>
+            <h3>Pray naturally</h3>
+            <p>Ar-Rayyan’s sensors recognize each sujood as you move naturally through prayer.</p>
+          </article>
+          <article class="step reveal delay-2">
+            <div class="step-number"><span>03 / TRUST</span><span class="step-symbol">✦</span></div>
+            <h3>Let Ar-Rayyan count</h3>
+            <p>Two sujoods complete a rak’ah. Gentle on-screen feedback keeps track without interruption.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="footer">Ar-Rayyan</div>
+    <section class="feature-stage" id="features">
+      <div class="shell feature-grid">
+        <div class="feature-copy">
+          <div class="eyebrow reveal">Beyond the counter</div>
+          <h2 class="display reveal">Everything you need. <em>Nothing you don’t.</em></h2>
+          <p class="reveal">A considered set of tools for the moments around prayer, all held in one calm, distraction-free experience.</p>
+          <ul class="feature-list reveal">
+            <li><span>01</span><strong>Accurate prayer times</strong><span>↗</span></li>
+            <li><span>02</span><strong>Qibla direction finder</strong><span>↗</span></li>
+            <li><span>03</span><strong>Digital tasbih with haptics</strong><span>↗</span></li>
+            <li><span>04</span><strong>Adhan notifications</strong><span>↗</span></li>
+            <li><span>05</span><strong>Widgets &amp; watch companion</strong><span>↗</span></li>
+          </ul>
+        </div>
+        <div class="phone-pair reveal">
+          <div class="mini-phone one">
+            <img src="assets/screen-prayer-times.png" alt="Ar-Rayyan prayer times screen" width="1206" height="2622" loading="lazy">
+          </div>
+          <div class="mini-phone two">
+            <img src="assets/screen-tasbih.png" alt="Ar-Rayyan digital tasbih screen" width="1206" height="2622" loading="lazy">
+          </div>
+          <div class="feature-seal" aria-hidden="true">Thoughtfully<br>made for<br>the Ummah</div>
+        </div>
+      </div>
+    </section>
 
-<script>
-(function(){
-  var ua=navigator.userAgent||'';
-  var isIOS=/iPhone|iPad|iPod/i.test(ua);
-  var isAndroid=/Android/i.test(ua);
+    <section class="privacy" id="privacy">
+      <div class="shell">
+        <div class="privacy-card reveal">
+          <div class="privacy-copy">
+            <div class="eyebrow">Your prayer stays yours</div>
+            <h2 class="display">Private by design, <em>not by promise.</em></h2>
+            <p>The camera helps detect movement, but no image, video, or prayer data is ever recorded, stored, or sent anywhere. The processing happens on your device—and stays there.</p>
+          </div>
+          <ul class="privacy-points">
+            <li><b>01</b><span>No account required</span></li>
+            <li><b>02</b><span>No cloud processing</span></li>
+            <li><b>03</b><span>No tracking or analytics</span></li>
+            <li><b>04</b><span>No ads, ever</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  document.getElementById('iosBtn').href='https://apps.apple.com/app/'+CONFIG.iosAppName+'/id'+CONFIG.iosAppId;
-  document.getElementById('androidBtn').href='https://play.google.com/store/apps/details?id='+CONFIG.androidPackage;
+    <section class="ecosystem">
+      <div class="shell ecosystem-grid">
+        <div class="ecosystem-art reveal">
+          <img src="assets/watch-widgets.png" alt="Ar-Rayyan prayer times on Apple Watch and a Home Screen widget" width="1206" height="2622" loading="lazy">
+        </div>
+        <div class="ecosystem-copy">
+          <div class="eyebrow reveal">There when you need it</div>
+          <h2 class="display reveal">From your prayer mat to <em>your wrist.</em></h2>
+          <p class="reveal">See the next prayer at a glance with Home Screen widgets and Apple Watch complications. Open the full app only when you need it.</p>
+          <div class="ecosystem-stats reveal">
+            <div class="ecosystem-stat"><strong>5</strong><span>Daily prayers, always in view</span></div>
+            <div class="ecosystem-stat"><strong>0</strong><span>Ads or paid upgrades</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  if(isIOS) document.getElementById('iosBtn').style.borderColor='rgba(0,168,107,.4)';
-  if(isAndroid) document.getElementById('androidBtn').style.borderColor='rgba(0,168,107,.4)';
+    <section class="closing" id="download">
+      <div class="shell">
+        <img class="closing-icon reveal" src="assets/app-icon.png" alt="Ar-Rayyan app icon" width="76" height="76">
+        <h2 class="display reveal">Pray with awareness.<br><em>Let Ar-Rayyan remember.</em></h2>
+        <p class="reveal">A calmer prayer companion, completely free on iPhone and Android.</p>
+        <div class="download-row reveal">
+          <a class="store-button ios-link" href="https://apps.apple.com/app/ar-rayyan-muslim-prayer-times/id6778996322" aria-label="Download Ar-Rayyan on the App Store">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+            <span class="store-copy"><small>Download on the</small><span>App Store</span></span>
+          </a>
+          <a class="store-button secondary android-link" href="https://play.google.com/store/apps/details?id=com.hussam.arrayyan" aria-label="Get Ar-Rayyan on Google Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92Zm10.89 10.893 2.302 2.302-10.937 6.333 8.635-8.635Zm3.199-3.199 2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492ZM5.864 2.658 16.8 8.99l-2.302 2.302-8.634-8.634Z"/></svg>
+            <span class="store-copy"><small>Get it on</small><span>Google Play</span></span>
+          </a>
+        </div>
+        <div class="closing-note reveal">Free forever · No ads · No subscriptions</div>
+      </div>
+    </section>
+  </main>
 
-  document.getElementById('whatsappBtn').href='https://wa.me/?text='+encodeURIComponent('Ar-Rayyan \uD83D\uDD4C\n\n'+CONFIG.baseUrl);
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div><span class="footer-brand">Ar-Rayyan</span> &nbsp; Made with care for the Ummah.</div>
+      <div class="footer-links">
+        <a href="docs/privacy.html">Privacy</a>
+        <a class="share-link" href="#">Share Ar-Rayyan</a>
+        <span>© <span id="year"></span> Ar-Rayyan</span>
+      </div>
+    </div>
+  </footer>
 
-  window.shareLink=function(){
-    if(navigator.share){
-      navigator.share({title:'Ar-Rayyan',url:CONFIG.baseUrl}).catch(function(){});
-      return;
-    }
-    if(navigator.clipboard){
-      navigator.clipboard.writeText(CONFIG.baseUrl).catch(function(){});
-    }
-  };
-})();
-</script>
+  <script>
+    (function () {
+      document.querySelectorAll(".ios-link").forEach(function (link) {
+        link.href = CONFIG.iosUrl;
+        link.rel = "noopener";
+      });
+
+      document.querySelectorAll(".android-link").forEach(function (link) {
+        link.href = CONFIG.androidUrl;
+        link.rel = "noopener";
+      });
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      var menuButton = document.querySelector(".menu-button");
+      var navLinks = document.querySelector(".nav-links");
+
+      function closeMenu() {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open menu");
+        document.body.classList.remove("menu-open");
+      }
+
+      menuButton.addEventListener("click", function () {
+        var isOpen = menuButton.getAttribute("aria-expanded") === "true";
+        if (isOpen) {
+          closeMenu();
+        } else {
+          navLinks.classList.add("open");
+          menuButton.setAttribute("aria-expanded", "true");
+          menuButton.setAttribute("aria-label", "Close menu");
+          document.body.classList.add("menu-open");
+        }
+      });
+
+      navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeMenu();
+      });
+
+      document.querySelector(".share-link").addEventListener("click", function (event) {
+        event.preventDefault();
+        if (navigator.share) {
+          navigator.share({
+            title: "Ar-Rayyan",
+            text: "Stay aware in every prayer with Ar-Rayyan.",
+            url: CONFIG.baseUrl
+          }).catch(function () {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(CONFIG.baseUrl).then(function () {
+            event.currentTarget.textContent = "Link copied";
+            setTimeout(function () {
+              event.currentTarget.textContent = "Share Ar-Rayyan";
+            }, 1800);
+          }).catch(function () {});
+        }
+      });
+
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .12 });
+        document.querySelectorAll(".reveal").forEach(function (element) {
+          observer.observe(element);
+        });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (element) {
+          element.classList.add("visible");
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
