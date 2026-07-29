@@ -17,6 +17,47 @@
   <meta name="twitter:title" content="Ar-Rayyan — Stay Aware in Every Prayer">
   <meta name="twitter:description" content="Hands-free rak’ah tracking. Private by design. Free forever.">
   <meta name="twitter:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
+  <link rel="canonical" href="https://hussamfazal.github.io/arrayyan-landing/">
+  <!--
+    SoftwareApplication structured data. Note: `aggregateRating` is deliberately
+    absent — the app genuinely has no ratings yet, and Google treats invented or
+    unverifiable ratings as a structured-data violation. Add the block below once
+    real ratings exist, keeping the numbers in sync with the live App Store value:
+
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "<live value>",
+          "ratingCount": "<live count>"
+        }
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Ar-Rayyan: Muslim Prayer Times",
+    "alternateName": "Ar-Rayyan",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS, Android, watchOS, Wear OS",
+    "url": "https://hussamfazal.github.io/arrayyan-landing/",
+    "image": "https://hussamfazal.github.io/arrayyan-landing/og-image.png",
+    "description": "Ar-Rayyan counts your rak'ahs automatically so you can pray with awareness. Prayer times, qibla, tasbih, widgets and more — free on iOS and Android.",
+    "author": {
+      "@type": "Person",
+      "name": "Hussam Fazal Hasnain"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": [
+      "https://apps.apple.com/app/ar-rayyan-muslim-prayer-times/id6778996322",
+      "https://play.google.com/store/apps/details?id=com.hussam.arrayyan"
+    ],
+    "privacyPolicy": "https://hussamfazal.github.io/privacy.html",
+    "isAccessibleForFree": true
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
@@ -1360,6 +1401,7 @@
         <li><a href="#how">How it works</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#privacy">Privacy</a></li>
+        <li><a href="guides/">Guides</a></li>
         <li><a class="nav-download" href="#download">Download free</a></li>
       </ul>
     </div>
@@ -1532,6 +1574,7 @@
     <div class="shell footer-inner">
       <div><span class="footer-brand">Ar-Rayyan</span> &nbsp; Made with care for the Ummah.</div>
       <div class="footer-links">
+        <a href="guides/">Guides</a>
         <a href="docs/privacy.html">Privacy</a>
         <a class="share-link" href="#">Share Ar-Rayyan</a>
         <span>© <span id="year"></span> Ar-Rayyan</span>

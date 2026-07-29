@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Deploy alongside index.html, i.e. to https://hussamfazal.github.io/arrayyan-landing/sitemap.xml
+  Then submit that exact URL in Google Search Console (Sitemaps -> Add a new sitemap).
+
+  Update <lastmod> whenever the page content meaningfully changes, and add a <url>
+  entry for each article as the content-SEO pages in growth-actions.md section 6 go live.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://hussamfazal.github.io/arrayyan-landing/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://hussamfazal.github.io/arrayyan-landing/guides/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hussamfazal.github.io/arrayyan-landing/guides/how-many-rakats-in-each-prayer/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hussamfazal.github.io/arrayyan-landing/guides/forgot-how-many-rakats/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hussamfazal.github.io/arrayyan-landing/guides/sujood-sahw/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hussamfazal.github.io/arrayyan-landing/guides/qibla-direction/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hussamfazal.github.io/privacy.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
