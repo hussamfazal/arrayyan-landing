@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ar-Rayyan — Stay Aware in Every Prayer</title>
-  <meta name="description" content="Ar-Rayyan counts your rak’ahs automatically so you can pray with awareness. Prayer times, qibla, tasbih, widgets and more — free on iOS and Android.">
+  <meta name="description" content="Ar-Rayyan counts your rak’ahs automatically so you can pray with awareness. Now with the Holy Quran to read and listen. Prayer times, qibla, tasbih, widgets and more — free on iOS and Android.">
   <meta name="theme-color" content="#092f27">
   <meta property="og:title" content="Ar-Rayyan — Stay Aware in Every Prayer">
-  <meta property="og:description" content="Hands-free rak’ah tracking. Private by design. Free forever.">
+  <meta property="og:description" content="Hands-free rak’ah tracking, now with the Holy Quran. Private by design. Free forever.">
   <meta property="og:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://hussamfazal.github.io/arrayyan-landing/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ar-Rayyan — Stay Aware in Every Prayer">
-  <meta name="twitter:description" content="Hands-free rak’ah tracking. Private by design. Free forever.">
+  <meta name="twitter:description" content="Hands-free rak’ah tracking, now with the Holy Quran. Private by design. Free forever.">
   <meta name="twitter:image" content="https://hussamfazal.github.io/arrayyan-landing/og-image.png">
   <link rel="canonical" href="https://hussamfazal.github.io/arrayyan-landing/">
   <!--
@@ -40,7 +40,16 @@
     "operatingSystem": "iOS, Android, watchOS, Wear OS",
     "url": "https://hussamfazal.github.io/arrayyan-landing/",
     "image": "https://hussamfazal.github.io/arrayyan-landing/og-image.png",
-    "description": "Ar-Rayyan counts your rak'ahs automatically so you can pray with awareness. Prayer times, qibla, tasbih, widgets and more — free on iOS and Android.",
+    "description": "Ar-Rayyan counts your rak'ahs automatically so you can pray with awareness. Now with the Holy Quran to read and listen. Prayer times, qibla, tasbih, widgets and more — free on iOS and Android.",
+    "featureList": [
+      "Automatic rak'ah counter",
+      "The Holy Quran: all 114 surahs with transliteration and the Saheeh International translation",
+      "Quran recitation by Mishary Alafasy with verse-by-verse highlighting",
+      "Prayer times and adhan notifications",
+      "Qibla direction finder",
+      "Digital tasbih",
+      "Home Screen widgets and Apple Watch / Wear OS"
+    ],
     "author": {
       "@type": "Person",
       "name": "Hussam Fazal Hasnain"
@@ -1368,6 +1377,111 @@
       }
     }
 
+    .new-pill {
+      display: flex;
+      width: max-content;
+      max-width: 100%;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      padding: 6px 15px 6px 6px;
+      border: 1px solid rgba(200, 168, 92, .55);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, .86);
+      background: rgba(200, 168, 92, .08);
+      font-family: "DM Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .new-pill b {
+      padding: 3px 10px;
+      border-radius: 999px;
+      color: var(--forest);
+      background: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .quran-stage {
+      position: relative;
+      padding: 145px 0;
+      color: var(--ink);
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    .quran-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10vw;
+      align-items: center;
+    }
+
+    .quran-copy .eyebrow {
+      margin-bottom: 24px;
+    }
+
+    .quran-copy h2 {
+      max-width: 600px;
+      font-size: clamp(45px, 5.3vw, 72px);
+    }
+
+    .quran-copy > p {
+      max-width: 520px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .quran-list {
+      border-top-color: var(--line);
+    }
+
+    .quran-list li {
+      border-bottom-color: var(--line);
+      color: var(--ink);
+    }
+
+    .quran-list span:last-child {
+      color: rgba(16, 34, 29, .3);
+    }
+
+    .quran-copy > p.quran-note {
+      margin-top: 26px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 960px) {
+      .quran-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quran-phones {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .quran-stage {
+        padding-block: 92px;
+      }
+
+      .quran-grid {
+        gap: 70px;
+      }
+
+      .quran-copy > p {
+        font-size: 16px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -1399,6 +1513,7 @@
       </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="#how">How it works</a></li>
+        <li><a href="#quran">Quran</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#privacy">Privacy</a></li>
         <li><a href="guides/">Guides</a></li>
@@ -1411,6 +1526,7 @@
     <section class="hero">
       <div class="shell hero-grid">
         <div class="hero-copy">
+          <a class="new-pill" href="#quran"><b>New</b> The Holy Quran, read &amp; listen <span aria-hidden="true">→</span></a>
           <div class="eyebrow">A prayer companion for awareness</div>
           <h1 class="display">Never lose count. <em>Stay in the prayer.</em></h1>
           <p class="hero-lead"><strong>Ar-Rayyan counts your rak’ahs automatically</strong> as you pray—no tapping, no distraction. Place your phone on the mat and let your focus stay where it belongs.</p>
@@ -1511,6 +1627,32 @@
             <img src="assets/screen-tasbih.png" alt="Ar-Rayyan digital tasbih screen" width="1206" height="2622" loading="lazy">
           </div>
           <div class="feature-seal" aria-hidden="true">Thoughtfully<br>made for<br>the Ummah</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quran-stage" id="quran">
+      <div class="shell quran-grid">
+        <div class="phone-pair quran-phones reveal">
+          <div class="mini-phone one">
+            <img src="assets/screen-quran-recitation.png" alt="Ar-Rayyan Quran reader playing Surah Al-Mulk, with the verse being recited highlighted" width="1206" height="2622" loading="lazy">
+          </div>
+          <div class="mini-phone two">
+            <img src="assets/screen-quran-reader.png" alt="Ar-Rayyan Quran reader showing Surah Al-Fatihah with transliteration and translation" width="1206" height="2622" loading="lazy">
+          </div>
+        </div>
+        <div class="quran-copy">
+          <div class="eyebrow reveal">New in Ar-Rayyan 1.2</div>
+          <h2 class="display reveal">The Holy Quran, <em>read and listen.</em></h2>
+          <p class="reveal">All 114 surahs in the Uthmani script, with transliteration and the Saheeh International translation. Press play and Mishary Alafasy recites as each verse lights up.</p>
+          <ul class="feature-list quran-list reveal">
+            <li><span>01</span><strong>All 114 surahs · Arabic, transliteration &amp; English</strong><span>↗</span></li>
+            <li><span>02</span><strong>Verse-by-verse recitation by Mishary Alafasy</strong><span>↗</span></li>
+            <li><span>03</span><strong>Surah names in King Fahd Complex calligraphy</strong><span>↗</span></li>
+            <li><span>04</span><strong>Continue reading where you left off</strong><span>↗</span></li>
+            <li><span>05</span><strong>Download recitations to listen offline</strong><span>↗</span></li>
+          </ul>
+          <p class="quran-note reveal">The Quran text is built into the app. Recitations download from mp3quran.net only when you choose to listen.</p>
         </div>
       </div>
     </section>
